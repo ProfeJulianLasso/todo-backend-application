@@ -35,7 +35,7 @@ export class LoginUseCase extends UseCaseBase {
       secret: this.config.get<string>(ConfigEnum.JWT_SECRET),
       payload: {
         sub: user.userId,
-        iat: Date.now(),
+        iat: date,
         exp: date + hours,
         data: {
           name: user.fullName,
