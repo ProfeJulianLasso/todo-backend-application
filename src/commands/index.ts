@@ -4,3 +4,4 @@ export * from './get-all-to-dos.command';
 export * from './inputs';
 export * from './login.command';
 export * from './new-user.command';
+export * from './validators';
