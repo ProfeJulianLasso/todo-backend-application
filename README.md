@@ -1,6 +1,6 @@
 # ¿Qué es esto?
 
-Esto es un pequeño proyecto de arquitectura limpia en 3 paquetes y este es tan sólo el segundo paquete de los tres, esto es la **capa de aplicación**.
+Esto es un pequeño proyecto de arquitectura limpia en 3 capas y este es tan sólo la segunda capa de las tres, esto es la **capa de aplicación**.
 
 [Repositorio de la primera capa, dominio](https://github.com/ProfeJulianLasso/todo-backend-domain)
 
@@ -10,7 +10,7 @@ El ejercicio trata de un simple ToDo con usuario y contraseña. Los nombres que 
 
 ## Pensamientos
 
-Este paquete por si sólo no funciona, ya que es un compendio de comportamientos, es decir, los casos de uso, los cuales, la futura infraestructura debería de ejecutar para poder mover la solución.
+Este paquete por si sólo no funciona, ya que es un compendio de comportamientos, es decir, los casos de uso, los cuales, la futura capa de infraestructura debería de ejecutar para poder mover la solución.
 
 ## El repositorio
 
@@ -20,12 +20,12 @@ Trataré al máximo de llevar los commits bajo la filosofía de "[Conventional C
 
 Inicié trabajando con NPM pero ahora estoy trabajando con PNPM por el tema de velocidad y ahorro de espacio en almacenamiento. Así que los pasos serían los siguientes para probar más que hacerlo caminar ya que este paquete por si solo no debería de funcionar.
 
-NOTA: si no sabes qué es PNPM te invito a darle una oportunidad haciendo [clic aquí](https://pnpm.io/).
+**NOTA**: si no sabes qué es PNPM te invito a darle una oportunidad haciendo [clic aquí](https://pnpm.io/).
 
 ### Paso 1: Clonar el repositorio
 
 ```bash
-git clone 
+git clone [FALTA LA URL DEL REPOSITORIO]
 ```
 
 ### Paso 2: Instalación de dependencias
@@ -55,13 +55,7 @@ pnpm build
 ### Paso 4: Crear el enlace simbólico para incluir el paquete en la capa de aplicación
 
 ```bash
-pnpm install -g
+pnpm link domain --global
 ```
 
-En mi caso el paso anterior me tocó hacerlo sólo una vez en la vida de PNPM. Luego si hacemos el siguiente paso que es propiamente para crear el enlace simbólico.
-
-NOTA: Para poder crear el enlace simbólico, usted debe de estar en la raíz del proyecto.
-
-```bash
-pnpm link --global
-```
+**NOTA**: recuerde que `domain` es el nombre del proyecto de la capa de dominio. Si usted desea dar otro nombre a la capa de dominio para que no le quede tan genérico, puede modificar el nombre del proyecto en el archivo `package.json` de la capa de dominio, pero no olvide que debe de volver a crear el enlace global y volver nuevamente a la capa de aplicación a volver a realizar el enlace con el nuevo nombre.
