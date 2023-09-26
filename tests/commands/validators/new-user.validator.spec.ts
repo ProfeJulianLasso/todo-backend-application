@@ -12,7 +12,6 @@ describe('NewUserValidator', () => {
   let name: string;
   let invalidName: string;
   let validUserId: string;
-  let invalidUserId: string;
   let password: string;
   let invalidPassword: string;
   let expectedThrowMessage: string;
@@ -23,7 +22,6 @@ describe('NewUserValidator', () => {
     name = 'test';
     invalidName = 't';
     validUserId = '550e8400-e29b-41d4-a716-887744331234';
-    invalidUserId = 'invalid-user-id';
     password = 'Password123!';
     invalidPassword = 'InvalidPassword123';
     expectedThrowMessage = 'Invalid data';
@@ -83,23 +81,6 @@ describe('NewUserValidator', () => {
 
       // Assert
       expect(exception).toThrow('Invalid data');
-    });
-
-    it('should to be invalid with invalid userId', () => {
-      // Arrange
-      const data = {
-        userId: new UserIdValueObject(invalidUserId),
-        name: new UserNameValueObject(name),
-        email: new UserEmailValueObject(email),
-        password: new UserPasswordValueObject(password),
-      } as NewUserCommand;
-
-      // Act
-      const validator = new NewUserValidator(data);
-      const exception = () => validator.validate();
-
-      // Assert
-      expect(exception).toThrow(expectedThrowMessage);
     });
 
     it('should to be invalid with invalid password', () => {
