@@ -1,7 +1,17 @@
 import { UserEmailValueObject, UserPasswordValueObject } from '@domain';
 import { LoginCommand, LoginCommandInput, LoginValidator } from '../commands';
-import { AppConfig, ConfigEnum, Jwt, JwtDataUserInterface } from '../common';
-import { UserModel, UsersBaseRepository } from '../persistence';
+import {
+  AppConfig,
+  ApplicationException,
+  ConfigEnum,
+  Jwt,
+  JwtDataUserInterface,
+} from '../common';
+import {
+  PersistenceException,
+  UserModel,
+  UsersBaseRepository,
+} from '../persistence';
 import { UseCaseBase } from './base';
 
 export class LoginUseCase extends UseCaseBase {
@@ -55,8 +65,10 @@ export class LoginUseCase extends UseCaseBase {
         where: { email, password },
       });
       return user;
-    } catch (error) {
-      throw new Error('Error on get user by email and password');
+    } catch (error: unknown) {
+      if (error instanceof PersistenceException)
+        throw new ApplicationException('Invalid credentials', error.details);
+      throw error;
     }
   }
 
