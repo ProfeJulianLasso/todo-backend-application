@@ -1,9 +1,9 @@
-export class ApplicationException extends Error {
+export class PersistenceException extends Error {
   constructor(
     message: string,
     readonly details?: Record<string, unknown> | Record<string, unknown>[]
   ) {
     super(message);
-    this.name = 'ApplicationException';
+    this.name = 'PersistenceException';
   }
 }
