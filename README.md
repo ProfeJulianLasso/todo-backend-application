@@ -1,6 +1,6 @@
 # ¿Qué es esto?
 
-Esto es un pequeño proyecto de arquitectura limpia en 3 capas y este es tan sólo la segunda capa de las tres, esto es la **capa de aplicación**.
+Este es un pequeño proyecto de arquitectura limpia en 3 capas y este es tan sólo la segunda capa de las tres, esto es la **capa de aplicación**.
 
 [Repositorio de la primera capa, dominio](https://github.com/ProfeJulianLasso/todo-backend-domain)
 
@@ -25,7 +25,7 @@ Inicié trabajando con NPM pero ahora estoy trabajando con PNPM por el tema de v
 ### Paso 1: Clonar el repositorio
 
 ```bash
-git clone [FALTA LA URL DEL REPOSITORIO]
+git clone https://github.com/ProfeJulianLasso/todo-backend-application
 ```
 
 ### Paso 2: Instalación de dependencias
