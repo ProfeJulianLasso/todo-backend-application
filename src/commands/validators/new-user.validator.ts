@@ -16,14 +16,12 @@ export class NewUserValidator extends ValidatorBase {
 
   constructor(private readonly data: NewUserCommand) {
     super();
-    this.userId = data.userId ? data.userId : undefined;
     this.name = data.name;
     this.email = data.email;
     this.password = data.password;
   }
 
   validate(): void {
-    if (this.userId && !this.userId.isValid()) this.error = this.userId.error;
     if (!this.name.isValid()) this.error = this.name.error;
     if (!this.email.isValid()) this.error = this.email.error;
     if (!this.password.isValid()) this.error = this.password.error;

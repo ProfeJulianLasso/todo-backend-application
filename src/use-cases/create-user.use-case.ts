@@ -1,7 +1,6 @@
 import {
   SecurityAggregate,
   UserEmailValueObject,
-  UserIdValueObject,
   UserNameValueObject,
   UserPasswordValueObject,
 } from '@domain';
@@ -44,9 +43,6 @@ export class CreateUserUseCase extends UseCaseBase<SecurityAggregate> {
     loginCommand: CreateUserCommandInput
   ): NewUserCommand {
     return {
-      userId: loginCommand.id
-        ? new UserIdValueObject(loginCommand.id)
-        : undefined,
       name: new UserNameValueObject(loginCommand.name),
       email: new UserEmailValueObject(loginCommand.email),
       password: new UserPasswordValueObject(loginCommand.password),
