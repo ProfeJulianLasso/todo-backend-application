@@ -20,7 +20,7 @@
     "dup": "jscpd --pattern 'src/**/*.ts' --reporters 'consoleFull,console,html' --mode 'strict' --min-lines 5 --min-tokens 90 --output './report'"
   },
   "peerDependencies": {
-    "domain": "./node_modules/domain"
+    "domain": "link:domain"
   },
   "dependencies": {
     "dotenv": "^16.3.1"
